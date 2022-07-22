@@ -93,7 +93,7 @@ const getUrl= async function(req,res){
         
         const urlCheck= await urlModel.findOne({urlCode:urlCode})
         if(!urlCheck){
-            return res.status(404).send({status:false,message:"not a valid url"})
+            return res.status(404).send({status:false,message:"url not found"})
         }
         await SET_ASYNC(`${urlCode}`, JSON.stringify(urlCheck))
         //  return res.status(302).send({redirected:urlCheck.longUrl})
